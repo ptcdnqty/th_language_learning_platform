@@ -1,14 +1,11 @@
 import React from 'react';
 import type { FormProps } from 'antd';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { Route, Router } from 'react-router-dom';
-import { Sign } from 'crypto';
-import Signup from './Signup';
 
 type FieldType = {
+  email?: string;
   username?: string;
   password?: string;
-  remember?: string;
 };
 
 const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
@@ -47,24 +44,9 @@ const App: React.FC = () => (
         <Input.Password />
       </Form.Item>
 
-      <Form.Item<FieldType>
-        name="remember"
-        valuePropName="checked"
-        wrapperCol={{ offset: 8, span: 16 }}
-      >
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-    {/* link ไปหน้า Sign up ไม่ได้ */}
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button>
-        <Route path="/">
-        <Signup/>
-        </Route>
-          Not have an accont ?
-        </Button>
-
         <Button type="primary" htmlType="submit">
-          Sing in
+          Sign up
         </Button>
       </Form.Item>
     </Form>
