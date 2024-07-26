@@ -57,9 +57,9 @@ const App: React.FC = () => (
     {/* link ไปหน้า Sign up ไม่ได้ */}
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
         <Button>
-        <Route path="/">
+        {/* <Route path="/">
         <Signup/>
-        </Route>
+        </Route> */}
           Not have an accont ?
         </Button>
 
