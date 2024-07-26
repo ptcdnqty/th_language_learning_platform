@@ -1,8 +1,7 @@
 import React from 'react';
 import type { FormProps } from 'antd';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { Route, Router } from 'react-router-dom';
-import { Sign } from 'crypto';
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import Signup from './Signup';
 
 type FieldType = {
@@ -54,21 +53,27 @@ const App: React.FC = () => (
       >
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
-    {/* link ไปหน้า Sign up ไม่ได้ */}
       <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-        <Button>
-        {/* <Route path="/">
-        <Signup/>
-        </Route> */}
-          Not have an accont ?
-        </Button>
-
+        <Link to="/signup">
+          <Button type="link">
+            Not have an account?
+          </Button>
+        </Link>
         <Button type="primary" htmlType="submit">
-          Sing in
+          Sign in
         </Button>
       </Form.Item>
     </Form>
   </div>
 );
 
-export default App;
+const AppRoutes: React.FC = () => (
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/signup" element={<Signup />} />
+    </Routes>
+  </BrowserRouter>
+);
+
+export default AppRoutes;
