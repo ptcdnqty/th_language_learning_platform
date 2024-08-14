@@ -35,3 +35,5 @@ app.post("/users", (req,res) => {
 app.listen(8800, () => {
     console.log("Connect backend!")
 })
+
+export { db };
